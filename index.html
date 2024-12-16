@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.rtl.min.css" integrity="sha384-PRrgQVJ8NNHGieOA1grGdCTIt4h21CzJs6SnWH4YMQ6G5F5+IEzOHz67L4SQaF0o" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Resume Generator</title>
+
+</head>
+<body>
+    <!--here goes html code -->
+    <div class="container" id="resume-form">
+        <h1 class="text-center my-2" >Resume Generator</h1>
+
+        <div class="row">
+
+            <div class="col-md-6">
+                <!-- first col-->
+                <h3>Personal Information</h3>
+
+                <div class="form-group">
+                    <label for="namefield">Your Name</label>
+                    <input 
+                        type="text" 
+                        id="namefield" 
+                        placeholder="Enter here" 
+                        class="form-control"
+                    />
+                </div>
+
+                <div class="form-group mt-2">
+                    <label for="contactfield">Your Contact Number</label>
+                    <input 
+                        type="text" 
+                        id="contactfield" 
+                        placeholder="Enter here" 
+                        class="form-control"
+                    />
+                </div>
+
+                <div class="form-group mt-2">
+                    <label for="addressfield">Your Address</label>
+                    <textarea
+                        id="addressfield" 
+                        placeholder="Enter here" 
+                        class="form-control"
+                        rows="3"
+                    ></textarea>
+                </div>
+
+                <div class="form-group mt-3">
+                    <label for="">Select your pic</label>
+                    <input id="imgField" type="file" class="form-control">
+                </div>
+
+                <p class="text-secondary mt-2" >Important Link</p>
+
+                <div class="form-group mt-2">
+                    <label for="fbField">Facebook</label>
+                    <input
+                        type="text"
+                        id="fbField" 
+                        placeholder="Enter here" 
+                        class="form-control"
+                    />
+                </div>
+
+                <div class="form-group mt-2">
+                    <label for="instaField">Instagram</label>
+                    <input
+                        type="text"
+                        id="instaField" 
+                        placeholder="Enter here" 
+                        class="form-control"
+                    />
+                </div>
+
+                <div class="form-group mt-2">
+                    <label for="linkedField">Linkedin</label>
+                    <input
+                        type="text"
+                        id="linkedField" 
+                        placeholder="Enter here" 
+                        class="form-control"
+                    />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <!--second col-->
+                <h3>Professional Information</h3>
+
+                <div class="form-group mt-2">
+                    <label for="">Objective</label>
+                    <textarea id="objectivefield" 
+                    rows="5" 
+                    placeholder="Enter here" 
+                    class="form-control"></textarea>
+                </div>
+
+                <div class="form-group mt-2" id="we">
+                    <label for="">Work Experience</label>
+                    <textarea   
+                    placeholder="Enter here" 
+                    class="form-control wefield"
+                    rows="3"
+                    ></textarea>
+
+                    <!-- new textarea-->
+
+                    <div class="container text-center mt-2" id="weAddButton">
+                        <button  onclick="addNewWEField()"  class="btn btn-primary btn-sm">Add</button>
+                    </div>
+                </div>
+
+                <div class="form-group mt-2" id="aq">
+                    <label for="">Academic Qualification</label>
+                    <textarea   
+                    placeholder="Enter here" 
+                    class="form-control wefield eqfield"
+                    rows="3"
+                    ></textarea>
+
+                    <div class="container text-center mt-2" id="aqAddButton">
+                        <button onclick="addNewAQField()" class="btn btn-primary btn-sm">Add</button>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        </div>
+        <div class="container text-center mt-3">
+            <button onclick="generateResume()" class="btn btn-primary btn-lg ">
+                Generate Resume
+            </button>
+        </div>
+    </div>
+
+
+    <!-- resume template -->
+    <div class="container" id="resume-template">
+        <div class="row">
+            <div class="col-md-5 text-center py-5 background">
+                <!--first col-->
+
+                <img 
+                src="https://img.myloview.com/posters/guest-avatar-vector-illustration-default-male-profile-icon-image-400-203335797.jpg" 
+                alt="profile image"
+                class="img-fluid myimg"
+                id="imageT"
+                />
+
+                <div class="container">
+                    <p id="nameT1">Bharat Doshi </p>
+                    <p id="contactT">+91923456789</p>
+                    <p id="addressT">Sector 74 indore , India</p>
+                    <hr />
+
+                    <p>
+                        <a c id="fbT" href="#1">https://www.facebook.com/BharatDoshi</a>
+                    </p>
+                    <p>
+                        <a id="instaT" href="#1">https://www.instagram.com/BharatDoshi</a>
+                    </p>
+                    <p>
+                        <a  id="linkedT" href="#1">https://www.linkedin.com/BharatDoshi</a>
+                    </p>
+                </div>
+
+            </div>
+            <div class="col-md-7 py-5">
+                <!--second col-->
+                <h1 id="nameT2" class="text-center" style="font-weight: 980;">
+                    Bharat Doshi
+                </h1>
+
+                <!--objective card-->
+
+                <div class="card mt-4">
+                    <div class="card-header background">
+                        <h3>Objective</h3>
+                    </div>
+                    <div class="card-body">
+                        <p id="objectiveT">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores repellendus delectus dicta reprehenderit voluptatum sequi nihil commodi veritatis tempore tenetur rerum, ut vitae veniam natus. Sunt totam aperiam nulla ipsa mollitia harum voluptatum distinctio aut dolore repellat consectetur praesentium perferendis pariatur magnam, similique saepe, quasi quis voluptates magni impedit ullam?</p>
+                    </div>
+                </div>
+
+
+                <!--work experince-->
+
+                <div class="card mt-4">
+                    <div class="card-header background">
+                        <h3>Work Experience</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul id="weT">
+                            <li>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, magnam!
+                            </li>
+                            <li>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, magnam!
+                            </li>
+                            <li>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, magnam!
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!--academic qualification-->
+                <div class="card mt-4">
+                    <div class="card-header background">
+                        <h3>Academic Qualification</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul id="aqT">
+                            <li>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, magnam!
+                            </li>
+                            <li>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, magnam!
+                            </li>
+                            <li>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, magnam!
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            <div class="contanier mt-3 text-center">
+                <button onclick="printResume()" class="btn background">Print Resume</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" 
+    crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+</body>
+</html>
